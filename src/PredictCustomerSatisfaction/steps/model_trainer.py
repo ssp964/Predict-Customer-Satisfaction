@@ -1,15 +1,36 @@
 from PredictCustomerSatisfaction.logging import logger
+
+from PredictCustomerSatisfaction.components.modelDev import LinearRegressionModel
+from PredictCustomerSatisfaction.config.config import ModelNameConfig
+from sklearn.base import RegressorMixin
+
 import pandas as pd
 from zenml import step
 
 
 @step
-def trainModel(df: pd.DataFrame) -> None:
+def trainModel(
+    X_train: pd.DataFrame,
+    X_test: pd.DataFrame,
+    y_train: pd.DataFrame,
+    y_test: pd.DataFrame,
+    config: ModelNameConfig,
+) -> LinearRegressionModel:
     """
     Train a model on the data.
 
     Args:
-        df (pd.DataFrame): The data to train the model on.
+        X_train: pd.DataFrame,
+        X_test: pd.DataFrame,
+        y_train: pd.DataFrame,
+        y_test: pd.DataFrame,
     """
-    logger.info("Model training starteds")
-    pass
+    model = None
+
+    if config.model_name == "LinearRegression":
+        model = LinearRegressionModel()
+        trained_model = model.train(X_train, y_train)
+        return trained_model
+    else:
+        logger.error(f"Unsupported model: {config.model_name}")
+        raise ValueError(f"Unsupported model: {config.model_name}")
