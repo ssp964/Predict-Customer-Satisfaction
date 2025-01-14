@@ -5,7 +5,10 @@ if __name__ == "__main__":
     # Run the pipeline
     try:
         logger.info("Running the pipeline")
-        trainPipeline(data_path="./data/olist_customers_dataset.csv")
+        trainPipeline(
+            data_path="./data/olist_customers_dataset.csv",
+            model_name="LinearRegression",
+        )
     except Exception as e:
         logger.error(f"Error: {e}")
         raise e

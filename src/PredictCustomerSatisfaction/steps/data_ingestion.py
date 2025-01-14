@@ -19,7 +19,7 @@ class IngestData:
         """
         Ingest the data from the datapath and return the data as a Pandas DataFrame
         """
-        logger.info("Ingesting data from {self.data_path}")
+        logger.info(f"Ingesting data from {self.data_path}")
         return pd.read_csv(self.data_path)
 
 
@@ -37,6 +37,7 @@ def ingestData(data_path: str) -> pd.DataFrame:
     try:
         ingest_data = IngestData(data_path)
         df = ingest_data.get_data()
+        logger.info("Data ingested successfully.")
         return df
     except Exception as e:
         logger.error(f"Error ingesting data: {e}")

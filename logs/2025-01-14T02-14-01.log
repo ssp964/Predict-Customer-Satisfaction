@@ -1,0 +1,7 @@
+[2025-01-14 02:14:06,701: INFO: main: Running the pipeline]
+[2025-01-14 02:14:06,704: INFO: training_pipleine: Pipeline started]
+[2025-01-14 02:14:08,013: INFO: data_ingestion: Ingesting data from {self.data_path}]
+[2025-01-14 02:14:12,306: INFO: DataCleaning: Data pre-processing finished successfully]
+[2025-01-14 02:14:12,319: INFO: DataCleaning: Dataset divided into train and test data successfully]
+[2025-01-14 02:14:12,319: INFO: data_cleaning: Data cleaning completed successfully.]
+[2025-01-14 02:14:13,043: ERROR: main: Error: Wrong type for output 'y_train' of step 'cleanData' (expected type: <class 'pandas.core.frame.DataFrame'>, actual type: <class 'pandas.core.series.Series'>).]

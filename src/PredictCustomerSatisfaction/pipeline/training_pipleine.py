@@ -7,12 +7,12 @@ from PredictCustomerSatisfaction.logging import logger
 
 
 @pipeline(enable_cache=False)
-def trainPipeline(data_path: str):
+def trainPipeline(data_path: str, model_name: str):
     """
     A pipeline to train a model on customer satisfaction data.
     """
     logger.info("Pipeline started")
     df = ingestData(data_path)
-    cleanData(df)
-    trainModel(df)
-    evaluateModel(df)
+    X_train, X_test, y_train, y_test = cleanData(df)
+    model = trainModel(X_train, X_test, y_train, y_test, model_name)
+    r2_score, rmse = evaluateModel(model, X_test, y_test)

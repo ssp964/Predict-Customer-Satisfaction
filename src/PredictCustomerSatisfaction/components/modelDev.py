@@ -29,7 +29,7 @@ class LinearRegressionModel(Model):
 
     def train(self, X_train, y_train, **kwargs):
         """
-        Train the Linear Regression model
+        Train the Linear Regression model and store the trained model instance.
         """
 
         try:

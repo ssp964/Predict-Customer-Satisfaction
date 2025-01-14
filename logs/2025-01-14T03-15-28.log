@@ -1,0 +1,8 @@
+[2025-01-14 03:15:32,920: INFO: main: Running the pipeline]
+[2025-01-14 03:15:32,921: INFO: training_pipleine: Pipeline started]
+[2025-01-14 03:15:34,094: INFO: data_ingestion: Ingesting data from {self.data_path}]
+[2025-01-14 03:15:35,073: INFO: data_ingestion: Data ingested successfully.]
+[2025-01-14 03:15:38,373: INFO: DataCleaning: Data pre-processing finished successfully]
+[2025-01-14 03:15:38,386: INFO: DataCleaning: Dataset divided into train and test data successfully]
+[2025-01-14 03:15:38,387: INFO: data_cleaning: Data cleaning completed successfully.]
+[2025-01-14 03:15:40,556: ERROR: main: Error: 'LinearRegressionModel' object has no attribute 'fit']

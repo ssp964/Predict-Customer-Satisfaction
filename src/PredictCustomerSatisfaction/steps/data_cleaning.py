@@ -16,8 +16,8 @@ from typing import Tuple
 def cleanData(df: pd.DataFrame) -> Tuple[
     Annotated[pd.DataFrame, "X_train"],
     Annotated[pd.DataFrame, "X_test"],
-    Annotated[pd.DataFrame, "y_train"],
-    Annotated[pd.DataFrame, "y_test"],
+    Annotated[pd.Series, "y_train"],
+    Annotated[pd.Series, "y_test"],
 ]:
     """
     Clean the data by applying date preprocessing and data division.
@@ -35,10 +35,10 @@ def cleanData(df: pd.DataFrame) -> Tuple[
     try:
         process_strategy = DatePreProcessStrategy()
         data_cleaning = DataCleaning(df, process_strategy)
-        processed_data = data_cleaning.handle_data()
+        preProcessed_data = data_cleaning.handle_data()
 
         divide_strategy = DataDivideStrategy()
-        final_data = DataCleaning(df, divide_strategy)
+        final_data = DataCleaning(preProcessed_data, divide_strategy)
         X_train, X_test, y_train, y_test = final_data.handle_data()
         logger.info("Data cleaning completed successfully.")
         return X_train, X_test, y_train, y_test

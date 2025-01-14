@@ -31,11 +31,12 @@ class MSE(Evaluation):
         try:
             logging.info("Entered the calculate_score method of the MSE class")
             mse = mean_squared_error(y_true, y_pred)
-            logging.info("The mean squared error value is: {mse}")
+            logging.info("The mean squared error value is: %s", mse)
             return mse
         except Exception as e:
             logging.error(
-                f"Exception occurred in calculate_score method of the MSE class. Exception message: {e}"
+                "Exception occurred in calculate_score method of the MSE class. Exception message: %s",
+                e,
             )
             raise e
 
@@ -56,7 +57,7 @@ class R2Score(Evaluation):
         try:
             logging.info("Entered the calculate_score method of the R2Score class")
             r2 = r2_score(y_true, y_pred)
-            logging.info("The r2 score value is: {r2}")
+            logging.info("The r2 score value is: %s", r2)
             return r2
         except Exception as e:
             logging.error(
@@ -81,7 +82,7 @@ class RMSE(Evaluation):
         try:
             logging.info("Entered the calculate_score method of the RMSE class")
             rmse = np.sqrt(mean_squared_error(y_true, y_pred))
-            logging.info("The root mean squared error value is: {rmse}")
+            logging.info("The root mean squared error value is: %s", rmse)
             return rmse
         except Exception as e:
             logging.error(
