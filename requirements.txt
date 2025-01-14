@@ -1,0 +1,11 @@
+zenml[server]
+pandas
+catboost
+joblib
+lightgbm
+optuna
+scikit-learn
+streamlit
+xgboost
+markupsafe
+#-e

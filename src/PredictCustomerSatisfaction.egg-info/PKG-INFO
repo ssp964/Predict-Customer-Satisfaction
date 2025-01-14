@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: PredictCustomerSatisfaction
+Version: 0.0.0
+Summary: Customer Satisfaction Prediction Using MLOps with ZenML
+Home-page: https://github.com/ssp964/Predict-Customer-Satisfaction
+Author: ssp964
+Author-email: suprit202@gmail.com
+Project-URL: Bug Tracker, https://github.com/ssp964/Predict-Customer-Satisfaction/issues
+License-File: LICENSE
+
+# Predict-Customer-Satisfaction

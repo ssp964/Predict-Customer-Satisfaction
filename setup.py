@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "PredictCustomerSatisfaction"
+REPO_NAME = "Predict-Customer-Satisfaction"
 AUTHOR_USER_NAME = "ssp964"
 SRC_REPO = "PredictCustomerSatisfaction"
 AUTHOR_EMAIL = "suprit202@gmail.com"
@@ -15,7 +15,7 @@ setuptools.setup(
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
-    description="A small python package for NLP app",
+    description="Customer Satisfaction Prediction Using MLOps with ZenML",
     long_description=long_description,
     long_description_content="text/markdown",
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",

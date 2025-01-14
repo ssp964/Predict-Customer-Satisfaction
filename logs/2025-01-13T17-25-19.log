@@ -1,0 +1,6 @@
+[2025-01-13 17:25:23,343: INFO: main: Running the pipeline]
+[2025-01-13 17:25:23,344: INFO: training_pipleine: Pipeline started]
+[2025-01-13 17:25:24,561: INFO: data_ingestion: Ingesting data from {self.data_path}]
+[2025-01-13 17:25:28,855: INFO: data_cleaning: Data cleaning started]
+[2025-01-13 17:25:29,185: INFO: model_evaluate: Model evaluation started]
+[2025-01-13 17:25:29,542: INFO: model_trainer: Model training starteds]
