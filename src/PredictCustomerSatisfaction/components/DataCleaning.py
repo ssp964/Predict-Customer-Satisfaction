@@ -20,6 +20,10 @@ class DataStrategy(ABC):
         pass
 
 
+# Unionis needed because the data returned after split especially y_train/y_test can be pd.Series
+# pd.Series: Contains only one column or one row of data.
+
+
 class DatePreProcessStrategy(DataStrategy):
     """
     Strategy to preprocess data with date columns.
@@ -91,7 +95,7 @@ class DataDivideStrategy(DataStrategy):
 
 class DataCleaning:
     """
-    Data cleaning class which preprocesses the data and divides it into train and test data.
+    Central class that delegates data handling to a specific strategy.
     """
 
     def __init__(self, data: pd.DataFrame, strategy: DataStrategy) -> None:
