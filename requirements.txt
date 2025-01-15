@@ -7,5 +7,6 @@ optuna
 scikit-learn
 streamlit
 xgboost
+mlflow
 markupsafe
 #-e

@@ -4,10 +4,14 @@ from PredictCustomerSatisfaction.components.modelDev import LinearRegressionMode
 from sklearn.base import RegressorMixin
 
 import pandas as pd
+import mlflow
 from zenml import step
+from zenml.client import Client
+
+experiment_tracker = Client().active_stack.experiment_tracker
 
 
-@step
+@step(experiment_tracker=experiment_tracker.name)
 def trainModel(
     X_train: pd.DataFrame,
     X_test: pd.DataFrame,
@@ -27,6 +31,7 @@ def trainModel(
     model = None
 
     if modelName == "LinearRegression":
+        mlflow.sklearn.autolog()
         model = LinearRegressionModel()
         trained_model = model.train(X_train, y_train)
         return trained_model

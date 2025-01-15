@@ -3,7 +3,7 @@ import sys
 import logging
 from datetime import datetime
 
-logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
+logging_str = "[%(asctime)s: %(levelname)s: %(filename)s: %(module)s: %(message)s]"
 log_dir = "logs"
 # Add a timestamp to the log file name
 log_filename = f"{datetime.now().strftime('%Y-%m-%dT%H-%M-%S')}.log"

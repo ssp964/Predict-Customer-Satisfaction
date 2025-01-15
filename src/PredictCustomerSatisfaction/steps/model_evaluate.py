@@ -2,13 +2,17 @@ from PredictCustomerSatisfaction.logging import logger
 from PredictCustomerSatisfaction.components.modelEval import MSE, RMSE, R2Score
 
 import pandas as pd
+import mlflow
 from typing import Tuple
 from typing_extensions import Annotated
 from sklearn.base import RegressorMixin
 from zenml import step
+from zenml.client import Client
+
+experiment_tracker = Client().active_stack.experiment_tracker
 
 
-@step
+@step(experiment_tracker=experiment_tracker.name)
 def evaluateModel(
     model: RegressorMixin, X_test: pd.DataFrame, y_test: pd.DataFrame
 ) -> Tuple[Annotated[float, "RMSEscore"], Annotated[float, "R2score"]]:
@@ -27,8 +31,13 @@ def evaluateModel(
         R2scoreFn = R2Score()
 
         MSEscore = MSEscoreFn.calculate_score(y_test, prediction)
+        mlflow.log_metric("mse", MSEscore)
+
         RMSEscore = RMSEscoreFn.calculate_score(y_test, prediction)
+        mlflow.log_metric("rmse", RMSEscore)
+
         R2score = R2scoreFn.calculate_score(y_test, prediction)
+        mlflow.log_metric("r2score", R2score)
 
         logger.info(f"Evaluation scores calculated successfully")
 
